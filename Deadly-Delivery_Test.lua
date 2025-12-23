@@ -1,0 +1,82 @@
+-- SoundService 取得
+local SoundService = game:GetService("SoundService")
+
+-- 既に同名の Sound がある場合は再利用（重複作成防止）
+local sound = SoundService:FindFirstChild("DeadlyDeliveryMusic")
+if not sound then
+    sound = Instance.new("Sound")
+    sound.Name = "DeadlyDeliveryMusic"
+    sound.Parent = SoundService
+    sound.Volume = 0.1
+end
+
+-- ランダムの種を設定
+if math.randomseed then
+    math.randomseed(tick())
+end
+
+-- 再生したい音楽ID一覧（rbxassetid:// は必須）
+-- https://robloxsong.com
+local musicIds = {
+    "rbxassetid://1838667764",
+    "rbxassetid://1838667168",
+    "rbxassetid://1845409587",
+    "rbxassetid://1836334770",
+    "rbxassetid://1841238825",
+    "rbxassetid://9038459302",
+    "rbxassetid://1838667039",
+    "rbxassetid://1836879421",
+    "rbxassetid://1841446876",
+    "rbxassetid://1837344545"
+}
+
+-- ランダムに音楽を設定して再生する関数
+local function playRandomMusic()
+    if #musicIds == 0 then return end
+    local randomId = musicIds[math.random(1, #musicIds)]
+    sound.SoundId = randomId
+    -- 再生前に停止しておく（念のため）
+    if sound.IsPlaying then
+        pcall(function() sound:Stop() end)
+    end
+    pcall(function() sound:Play() end)
+end
+
+-- 曲が終わったら次を再生
+sound.Ended:Connect(function()
+    playRandomMusic()
+end)
+
+-- 初回再生
+playRandomMusic()
+
+-- true = オン | false = オフ
+-- WebhookURL は必要に応じて設定してください（短縮URLなどは外部に流す前に確認してください）
+getgenv().WebhookURL = "" -- 例: "https://your-webhook.example/..."
+
+getgenv().ScriptConfig = {
+    SellAll = false, -- 次の実行でアイテムの取得を停止したい場合を除き、trueに設定します
+    LockFoodAbove = 1000, -- 設定番号/価格より大きい/お気に入りの食品を自動的にロックします
+    MinFoodPrice = 5, -- 受け取るべき最小食品を設定し、無効にするには0に設定します
+    FloorLimit = 30, -- 試行する最大フロア
+    LobbySize = 1,
+    LobbyFriendsOnly = true,
+    PickupAttempts = 5, -- 食べ物を拾うのをあきらめるまでの最大回数、推奨される最低時間は5回です
+    InteractCooldown = 0.05, -- インタラクション/ピックアップ間のクールダウン、推奨最低は0.1です
+    StatusMenu = true, -- ダンジョンでGUIを有効にして、よりクリーンな外観のために、Hを押して非表示にするか、右上のボタンをタップします
+    HideFood = 20, -- 値設定の下にある食べ物をエレベーターに隠し、無効に0に設定します
+    WaitBeforeVote = 0.5, -- 投票する前に秒/秒の（数）を待ちます
+    WalkSpeed = 20, -- ダンジョンにいるときに歩行速度を変更し、一度だけ変更できます
+}
+
+-- リモートスクリプトを安全に読み込み・実行（URL を適切に修正）
+local remoteUrl = "https://raw.githubusercontent.com/SNSDARK/Scripts/main/Deadly%20Delivery.lua"
+local ok, res = pcall(function() return game:HttpGet(remoteUrl) end)
+if ok and type(res) == "string" and #res > 10 then
+    local success, err = pcall(function() loadstring(res)() end)
+    if not success then
+        warn("Deadly-Delivery: リモートスクリプトの実行に失敗しました。エラー:", err)
+    end
+else
+    warn("Deadly-Delivery: リモートスクリプトの取得に失敗しました。URL:", remoteUrl)
+end
