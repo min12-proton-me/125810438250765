@@ -1,5 +1,12 @@
+-- SoundService 取得
 local SoundService = game:GetService("SoundService")
 
+-- Sound オブジェクト作成
+local sound = Instance.new("Sound")
+sound.Parent = SoundService
+sound.Volume = 0.25
+
+-- 再生したい音楽ID一覧（rbxassetid:// は必須）
 -- https://robloxsong.com
 local musicIds = {
     "rbxassetid://1838667764",
@@ -7,21 +14,22 @@ local musicIds = {
     "rbxassetid://1845409587",
     "rbxassetid://1836334770",
     "rbxassetid://1841238825"
-};
+}
 
-local sound = Instance.new("Sound")
-sound.Volume = 0.5
-sound.Looped = false
-sound.Parent = SoundService
+-- ランダムに音楽を設定して再生する関数
+local function playRandomMusic()
+	local randomId = musicIds[math.random(1, #musicIds)]
+	sound.SoundId = randomId
+	sound:Play()
+end
 
+-- 曲が終わったら次を再生
 sound.Ended:Connect(function()
-    sound.SoundId = musicIds[math.random(#musicIds)]
-    sound:Play()
+	playRandomMusic()
 end)
 
 -- 初回再生
-sound.SoundId = musicIds[math.random(#musicIds)]
-sound:Play()
+playRandomMusic()
 
 -- true = オン | false = オフ
 -- ⌥ WebhookURL
