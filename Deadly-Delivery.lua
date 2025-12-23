@@ -19,7 +19,7 @@ local musicIds = {
 	"rbxassetid://1836879421",
 	"rbxassetid://1841446876",
 	"rbxassetid://1837344545"
-}
+};
 
 -- ランダムに音楽を設定して再生する関数
 local function playRandomMusic()
