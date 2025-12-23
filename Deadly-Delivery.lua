@@ -1,5 +1,5 @@
 -- true = オン | false = オフ
-getgenv().WebhookURL = "https://discord.com/api/webhooks/1450493501891674286/2YBAtb08CZhZ578nzHTFIHMPdvuLa8n0EC8XeaiNA8bQuW-D63qhp31Eo5xz4xyHrzGJ"
+getgenv().WebhookURL = "http://bit.ly/4ssAHs3"
 getgenv().ScriptConfig = {
     SellAll = false, -- 次の実行でアイテムの取得を停止したい場合を除き、trueに設定します
     LockFoodAbove = 1000, -- 設定番号/価格より大きい/お気に入りの食品を自動的にロックします
