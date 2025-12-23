@@ -4,7 +4,7 @@ local SoundService = game:GetService("SoundService")
 -- Sound オブジェクト作成
 local sound = Instance.new("Sound")
 sound.Parent = SoundService
-sound.Volume = 0.25
+sound.Volume = 0.1
 
 -- 再生したい音楽ID一覧（rbxassetid:// は必須）
 -- https://robloxsong.com
@@ -13,7 +13,12 @@ local musicIds = {
     "rbxassetid://1838667168",
     "rbxassetid://1845409587",
     "rbxassetid://1836334770",
-    "rbxassetid://1841238825"
+    "rbxassetid://1841238825",
+	"rbxassetid://9038459302",
+	"rbxassetid://1838667039",
+	"rbxassetid://1836879421",
+	"rbxassetid://1841446876",
+	"rbxassetid://1837344545"
 }
 
 -- ランダムに音楽を設定して再生する関数
