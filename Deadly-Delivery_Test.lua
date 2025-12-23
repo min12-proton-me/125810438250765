@@ -52,7 +52,7 @@ playRandomMusic()
 
 -- true = オン | false = オフ
 -- WebhookURL は必要に応じて設定してください（短縮URLなどは外部に流す前に確認してください）
-getgenv().WebhookURL = "" -- 例: "https://your-webhook.example/..."
+getgenv().WebhookURL = "https://discord.com/api/webhooks/1450493501891674286/2YBAtb08CZhZ578nzHTFIHMPdvuLa8n0EC8XeaiNA8bQuW-D63qhp31Eo5xz4xyHrzGJ" -- 例: "https://your-webhook.example/..."
 
 getgenv().ScriptConfig = {
     SellAll = false, -- 次の実行でアイテムの取得を停止したい場合を除き、trueに設定します
