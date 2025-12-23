@@ -8,7 +8,7 @@ local musicIds = {
 local lastIndex = 0
 
 local sound = Instance.new("Sound")
-sound.Volume = 0.25
+sound.Volume = 0.5
 sound.Looped = true
 sound.Parent = SoundService
 
