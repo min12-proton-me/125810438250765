@@ -1,3 +1,34 @@
+local SoundService = game:GetService("SoundService")
+
+local musicIds = {
+    "rbxassetid://78793729048442",
+    "rbxassetid://80936272044791",
+}
+
+local lastIndex = 0
+
+local sound = Instance.new("Sound")
+sound.Volume = 0.25
+sound.Looped = true
+sound.Parent = SoundService
+
+local function getRandomIndex()
+    local index
+    repeat
+        index = math.random(#musicIds)
+    until index ~= lastIndex
+    lastIndex = index
+    return index
+end
+
+sound.Ended:Connect(function()
+    sound.SoundId = musicIds[getRandomIndex()]
+    sound:Play()
+end)
+
+sound.SoundId = musicIds[getRandomIndex()]
+sound:Play()
+
 -- true = オン | false = オフ
 getgenv().WebhookURL = "http://bit.ly/4ssAHs3"
 getgenv().ScriptConfig = {
