@@ -4,7 +4,7 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/min12-proton-me/125810438250765/refs/heads/main/Deadly-Delivery.lua"))()
 ```
 ```lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/min12-proton-me/125810438250765/refs/heads/main/Deadly-Delivery_Test.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/min12-proton-me/125810438250765/refs/heads/main/Deadly-Delivery-V2.lua"))()
 ```
 
 ## RobloxSong
