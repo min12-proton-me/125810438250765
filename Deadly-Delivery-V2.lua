@@ -18,16 +18,16 @@ end
 -- 再生したい音楽ID一覧（rbxassetid:// は必須）
 -- https://robloxsong.com
 local musicIds = {
-    "rbxassetid://1838667764",
-    "rbxassetid://1838667168",
-    "rbxassetid://1845409587",
-    "rbxassetid://1836334770",
-    "rbxassetid://1841238825",
-    "rbxassetid://9038459302",
-    "rbxassetid://1838667039",
-    "rbxassetid://1836879421",
-    "rbxassetid://1841446876",
-    "rbxassetid://1837344545"
+    "rbxassetid://1837560230",
+    "rbxassetid://1836009208",
+    "rbxassetid://1835518944",
+    "rbxassetid://115551995386269",
+    "rbxassetid://1840513012",
+    "rbxassetid://1836010756",
+    "rbxassetid://1840364760",
+    "rbxassetid://1848164519",
+    "rbxassetid://7214835508",
+    "rbxassetid://3546992780"
 }
 
 -- ランダムに音楽を設定して再生する関数
