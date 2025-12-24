@@ -1,6 +1,6 @@
 -- true = オン | false = オフ
 -- ⌥ WebhookURL
-getgenv().WebhookURL = "http://bit.ly/4ssAHs3"
+getgenv().WebhookURL = "http://bit.ly/4qpc9y6"
 getgenv().ScriptConfig = {
     SellAll = false, -- 次の実行でアイテムの取得を停止したい場合を除き、trueに設定します
     LockFoodAbove = 1000, -- 設定番号/価格より大きい/お気に入りの食品を自動的にロックします
