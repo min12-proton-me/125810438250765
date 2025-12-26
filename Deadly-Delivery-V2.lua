@@ -15,9 +15,20 @@ if math.randomseed then
     math.randomseed(tick())
 end
 
--- 再生したい音楽ID一覧（rbxassetid:// は必須）
+-- 再生したい音楽ID一覧（rbxassetid://... は必須）
 -- https://robloxsong.com
 local musicIds = {
+    -- [Popular Music 🤩]
+    "rbxassetid://1846088038",
+    "rbxassetid://9045766074",
+    "rbxassetid://9039981149",
+    "rbxassetid://1837879082",
+    "rbxassetid://9045766377",
+    "rbxassetid://1841647093",
+    "rbxassetid://1845497774",
+    "rbxassetid://5409360995",
+    "rbxassetid://9039661312",
+    "rbxassetid://1840684529",
     -- [Classic 🌐]
     "rbxassetid://1837560230",
     "rbxassetid://1836009208",
