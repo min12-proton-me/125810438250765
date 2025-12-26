@@ -7,7 +7,7 @@ if not sound then
     sound = Instance.new("Sound")
     sound.Name = "DeadlyDeliveryMusic"
     sound.Parent = SoundService
-    sound.Volume = 0.1
+    sound.Volume = 0.25
 end
 
 -- ランダムの種を設定
@@ -92,7 +92,7 @@ getgenv().ScriptConfig = {
     SellAll = false, -- 次の実行でアイテムの取得を停止したい場合を除き、trueに設定します
     LockFoodAbove = 1000, -- 設定番号/価格より大きい/お気に入りの食品を自動的にロックします
     MinFoodPrice = 5, -- 受け取るべき最小食品を設定し、無効にするには0に設定します
-    FloorLimit = 30, -- 試行する最大フロア
+    FloorLimit = 35, -- 試行する最大フロア
     LobbySize = 1,
     LobbyFriendsOnly = true,
     PickupAttempts = 5, -- 食べ物を拾うのをあきらめるまでの最大回数、推奨される最低時間は5回です
@@ -109,8 +109,8 @@ local ok, res = pcall(function() return game:HttpGet(remoteUrl) end)
 if ok and type(res) == "string" and #res > 10 then
     local success, err = pcall(function() loadstring(res)() end)
     if not success then
-        warn("Deadly-Delivery: リモートスクリプトの実行に失敗しました。エラー:", err)
+        warn("Deadly-Delivery: The remote script failed to run. Error:", err)
     end
 else
-    warn("Deadly-Delivery: リモートスクリプトの取得に失敗しました。URL:", remoteUrl)
+    warn("Deadly-Delivery: Failed to retrieve the remote script. Url:", remoteUrl)
 end
